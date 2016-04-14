@@ -29,16 +29,40 @@
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
         <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta charset="utf-8"/>
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/screen.min.css">
         <title>Hello World</title>
     </head>
     <body>
-        <div id="contact">
-            <h1>Vos contact :</h1>
-        </div>
+        <header>
+            <div id="contact">
+                <h1>Vos contact :</h1>
+            </div>
+        </header>
+
+        <table>
+            <tr>
+                <th>Pseudo</th>
+                <th>Niveau</th>
+                <th>Numéro tel</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            <tr>
+                <td>Camille</td>
+                <td>45</td>
+                <td>0563689522</td>
+                <td>48.66652</td>
+                <td>2.36525</td>
+            </tr>
+        </table>
+        <footer>
+            gwynt.fr
+        </footer>
+
         <script type="text/javascript" src="js/lib.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/master.min.js"></script>
