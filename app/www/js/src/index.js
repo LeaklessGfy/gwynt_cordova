@@ -16,17 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
+$(document).ready(function() {
+    $(document).bind("deviceready", function() {
+        $('h1').text('test juyt h§yt');
+        app.onDeviceReady();
 
-    },
-    
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    
+    });
+});
+var app = {
+
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
         app.findContacts();
@@ -76,8 +74,8 @@ var app = {
                 phone = contacts[i].phoneNumbers[0].value;
             }
 
-            alert(name);
-            alert(phone);
+            //alert(name);
+            //alert(phone);
 
             info.push({name: name, phoneNumber: phone});
         }
