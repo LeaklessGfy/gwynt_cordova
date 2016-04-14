@@ -33,7 +33,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        //app.receivedEvent('deviceready');
         app.findContacts();
     },
 
@@ -42,13 +42,26 @@ var app = {
         var options = new ContactFindOptions();
         //options.filter = "Bob";
         var fields = ["displayName", "name"];
-        navigator.contacts.find(fields, app.onSuccess, app.onError, options);
+        navigator.contacts.find([navigator.contacts.fieldType.phoneNumbers], app.onSuccess, app.onError, options);
     },
 
     //Success
     onSuccess: function(contacts) {
+        var info = [];
         for (var i = 0; i < contacts.length; i++) {
-            console.log("Display Name = " + contacts[i].displayName);
+            info.push({name: contacts[i].displayName, phoneNumber: contacts[i].phoneNumbers[0].value});
+        }
+
+        app.hydrateHtml(info);
+    },
+
+    hydrateHtml: function(info) {
+        var elem = document.getElementById("contact");
+        
+        for(var i = 0;i < info.length; i++) {
+            var newHtml = "<p>" + info[i].name + ": " + info[i].phoneNumber + "</p>";
+            elem.innerHTML = elem.innerHTML + newHtml;
+            alert(elem.innerHTML);
         }
     },
 
