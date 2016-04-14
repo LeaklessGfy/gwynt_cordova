@@ -16,7 +16,7 @@
 * Les app gratuites sont financées par la pub
 * En 2013 **83 milliards** d'application téléchargées étaient **gratuites** = 91% des téléchargements
 * **43%** des **femmes** utilisent des smartphones
-* Aux USA pour 87% des 1.200 femmes interrogées, la vie sans smartphone est inimaginable
+* Aux USA pour 87% des 1.200 femmes interrogées, la vie sans smartphone est inimaginable.
 
 ### Utilisation
 
