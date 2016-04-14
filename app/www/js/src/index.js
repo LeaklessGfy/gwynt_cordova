@@ -16,17 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
+$(document).ready(function() {
+    $(document).bind("deviceready", function() {
+        $('h1').text('test juyt h§yt');
+        app.onDeviceReady();
 
-    },
-    
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    
+    });
+});
+var app = {
+
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
         app.findContacts();
@@ -36,13 +34,12 @@ var app = {
     //From dock
     findContacts: function() {
         var options = new ContactFindOptions();
-        //options.filter = "Bob";
-        var fields = ["displayName", "name"];
-        navigator.contacts.find([navigator.contacts.fieldType.phoneNumbers], app.onSuccess, app.onError, options);
+        options.filter = "";
+        options.multiple = true;
+        navigator.contacts.find(["*"], app.onSuccess, app.onError, options);
     },
 
     findGeoloc: function(){
-        alert("ddd");
         var onSuccess = function(position) {
             alert('Latitude: '          + position.coords.latitude          + '\n' +
                 'Longitude: '         + position.coords.longitude         + '\n' +
@@ -66,7 +63,21 @@ var app = {
     onSuccess: function(contacts) {
         var info = [];
         for (var i = 0; i < contacts.length; i++) {
-            info.push({name: contacts[i].displayName, phoneNumber: contacts[i].phoneNumbers[0].value});
+            var name = "";
+            var phone = "";
+
+            if(contacts[i].displayName) {
+                name = contacts[i].displayName;
+            }
+
+            if(contacts[i].phoneNumbers[0]) {
+                phone = contacts[i].phoneNumbers[0].value;
+            }
+
+            //alert(name);
+            //alert(phone);
+
+            info.push({name: name, phoneNumber: phone});
         }
 
         app.hydrateHtml(info);
