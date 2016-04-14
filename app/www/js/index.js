@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+
     },
     // Bind Event Listeners
     //
@@ -35,6 +36,7 @@ var app = {
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
         app.findContacts();
+        app.findGeoloc();
     },
 
     //From dock
@@ -43,6 +45,26 @@ var app = {
         //options.filter = "Bob";
         var fields = ["displayName", "name"];
         navigator.contacts.find([navigator.contacts.fieldType.phoneNumbers], app.onSuccess, app.onError, options);
+    },
+
+    findGeoloc: function(){
+        var onSuccess = function(position) {
+            alert('Latitude: '          + position.coords.latitude          + '\n' +
+                'Longitude: '         + position.coords.longitude         + '\n' +
+                'Altitude: '          + position.coords.altitude          + '\n' +
+                'Accuracy: '          + position.coords.accuracy          + '\n' +
+                'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                'Heading: '           + position.coords.heading           + '\n' +
+                'Speed: '             + position.coords.speed             + '\n' +
+                'Timestamp: '         + position.timestamp                + '\n');
+        };
+
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+        }
+
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     },
 
     //Success
