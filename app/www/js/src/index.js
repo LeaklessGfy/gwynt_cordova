@@ -1,12 +1,11 @@
+$(document).ready(function() {
+    $(document).bind("deviceready", function() {
+        $('h1').text('Gwynt');
+        app.onDeviceReady();
+    });
+});
+
 var app = {
-    initialize: function() {
-        this.bindEvents();
-    },
-    
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    
     onDeviceReady: function() {
         app.findContacts();
         app.findGeoloc();
@@ -49,11 +48,10 @@ var app = {
             if(contacts[i].displayName) {
                 name = contacts[i].displayName;
             }
-
             if(contacts[i].phoneNumbers) {
                 phone = contacts[i].phoneNumbers[0].value;
             }
-
+            
             info.push({name: name, phoneNumber: phone});
         }
 
@@ -61,19 +59,19 @@ var app = {
     },
 
     hydrateHtml: function(info) {
-        var elem = document.getElementById("contact");
+        var elem = document.getElementById("table");
         
         for(var i = 0;i < info.length; i++) {
             var registeredUser = app.checkIfContactExist(info[i].phoneNumber);
 
             if(registeredUser) {
-                var registerHtml = "<li>"+ registeredUser.name + " niveau " + registeredUser.lvl + "</li>";
+                var registerHtml = "<tr><td>"+ registeredUser.name + "</td><td>" + registeredUser.lvl + "</td><td>"+registeredUser.phoneNumber+"</td><td>"+registeredUser.latitude+"</td><td>"+registeredUser.longitude+"</td></tr>";
                 elem.innerHTML = elem.innerHTML + registerHtml;
 
                 continue;
             }
 
-            var newHtml = "<p>" + info[i].name + ": " + info[i].phoneNumber + "</p>";
+            var newHtml = "<tr><td>"+info[i].name + "</td><td></td><td>"+info[i].phoneNumber+"</td><td></td></td><td></td></tr>";
             elem.innerHTML = elem.innerHTML + newHtml;
         }
     },
