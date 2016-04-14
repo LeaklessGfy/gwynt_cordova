@@ -34,7 +34,29 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        app.findContacts();
     },
+
+    //From dock
+    findContacts: function() {
+        var options = new ContactFindOptions();
+        //options.filter = "Bob";
+        var fields = ["displayName", "name"];
+        navigator.contacts.find(fields, app.onSuccess, app.onError, options);
+    },
+
+    //Success
+    onSuccess: function(contacts) {
+        for (var i = 0; i < contacts.length; i++) {
+            console.log("Display Name = " + contacts[i].displayName);
+        }
+    },
+
+    // onError: Failed to get the contacts
+    onError: function(contactError) {
+        alert('onError!');
+    },
+
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
