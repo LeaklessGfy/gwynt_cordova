@@ -1,0 +1,6 @@
+app/platforms
+app/plugins
+node_modules
+.idea
+.idea/
+.idea/*
