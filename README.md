@@ -9,3 +9,4 @@
 * Jean-Nicolas Correa
 
 ## Projet GWYNT
+Jeu de carte multijoueur stratégique en référence à "The Witcher 3".
