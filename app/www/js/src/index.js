@@ -91,8 +91,7 @@ var app = {
             }
         }
     },
-
-    // onError: Failed to get the contacts
+    
     onError: function(contactError) {
         alert('onError!');
     }
