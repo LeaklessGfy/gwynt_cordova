@@ -1,26 +1,6 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var app = {
-    // Application Constructor
     initialize: function() {
         this.bindEvents();
-
     },
     
     bindEvents: function() {
@@ -28,12 +8,10 @@ var app = {
     },
     
     onDeviceReady: function() {
-        //app.receivedEvent('deviceready');
         app.findContacts();
         app.findGeoloc();
     },
-
-    //From dock
+    
     findContacts: function() {
         var options = new ContactFindOptions();
         options.filter = "";
@@ -72,12 +50,9 @@ var app = {
                 name = contacts[i].displayName;
             }
 
-            if(contacts[i].phoneNumbers[0]) {
+            if(contacts[i].phoneNumbers) {
                 phone = contacts[i].phoneNumbers[0].value;
             }
-
-            alert(name);
-            alert(phone);
 
             info.push({name: name, phoneNumber: phone});
         }
@@ -89,26 +64,39 @@ var app = {
         var elem = document.getElementById("contact");
         
         for(var i = 0;i < info.length; i++) {
+            var registeredUser = app.checkIfContactExist(info[i].phoneNumber);
+
+            if(registeredUser) {
+                var registerHtml = "<li>"+ registeredUser.name + " niveau " + registeredUser.lvl + "</li>";
+                elem.innerHTML = elem.innerHTML + registerHtml;
+
+                continue;
+            }
+
             var newHtml = "<p>" + info[i].name + ": " + info[i].phoneNumber + "</p>";
             elem.innerHTML = elem.innerHTML + newHtml;
+        }
+    },
+
+    getCaller: function() {
+        var rawData = '[{"name": "Skinra", "latitude": 48.857614, "longitude": 2.372543, "phoneNumber": "+33660221919", "lvl": 2}, {"name": "Nicolas", "latitude": 48.857388, "longitude": 2.372693, "phoneNumber": "0685697412", "lvl": 10}, {"name": "Killer91", "latitude": 48.857303, "longitude": 2.373186, "phoneNumber": "0789352416", "lvl": 25}, {"name": "Killer91", "latitude": 48.858009, "longitude": 2.371835, "phoneNumber": "0628745301", "lvl": 14}, {"name": "Rasquial", "latitude": 48.857911, "longitude": 2.372156, "phoneNumber": "0648521469", "lvl": 40}]';
+
+        return JSON.parse(rawData);
+    },
+
+    checkIfContactExist: function(contact) {
+        var caller = app.getCaller();
+
+        for(var i = 0; i < caller.length; i++) {
+            if(caller[i].phoneNumber == contact) {
+                return caller[i];
+            }
         }
     },
 
     // onError: Failed to get the contacts
     onError: function(contactError) {
         alert('onError!');
-    },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
     }
 };
 
