@@ -42,6 +42,7 @@ var app = {
     },
 
     findGeoloc: function(){
+        alert("ddd");
         var onSuccess = function(position) {
             alert('Latitude: '          + position.coords.latitude          + '\n' +
                 'Longitude: '         + position.coords.longitude         + '\n' +
@@ -77,7 +78,6 @@ var app = {
         for(var i = 0;i < info.length; i++) {
             var newHtml = "<p>" + info[i].name + ": " + info[i].phoneNumber + "</p>";
             elem.innerHTML = elem.innerHTML + newHtml;
-            alert(elem.innerHTML);
         }
     },
 
