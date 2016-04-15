@@ -12,7 +12,7 @@ ContactApi.prototype.eventListener = function () {
 
 ContactApi.prototype.process = function (data) {
     var phoneContact = [];
-    var name,
+    var name = "Default",
         phone,
         dbUser;
 
@@ -22,8 +22,10 @@ ContactApi.prototype.process = function (data) {
     alert(JSON.stringify(usersList));
 
     for (var i = 0; i < contacts.length; i++) {
-        if(contacts[i].displayName && contacts[i].phoneNumbers) {
-            name = contacts[i].displayName;
+        if(contacts[i].phoneNumbers) {
+            if(contacts[i].displayName) {
+                name = contacts[i].displayName;
+            }
             phone = contacts[i].phoneNumbers[0].value;
 
             dbUser = ContactApi.isRegistered(phone, usersList);
