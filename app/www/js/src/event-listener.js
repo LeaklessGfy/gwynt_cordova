@@ -10,6 +10,8 @@ var localLanguage;
 
 var app = {
     onDeviceReady: function() {
+        navigator.splashscreen.show();
+
         ApiCaller = new ApiCaller();
         ContactApi = new ContactApi();
 
