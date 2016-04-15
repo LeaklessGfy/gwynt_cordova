@@ -35,9 +35,8 @@ ApiCaller.prototype.toJson = function (data) {
 ApiCaller.prototype.get = function (url, arg, callSuccess, callError) {
     //this.urlContructor(url, "GET", arg);
     //this.call(callSuccess, callError);
+    
     var falseData = this.bouchon(callSuccess);
-
-    //callSuccess(falseData);
 };
 
 ApiCaller.prototype.post = function (url, arg, callSuccess, callError) {
