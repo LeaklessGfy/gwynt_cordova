@@ -31,7 +31,7 @@ ContactApi.prototype.process = function (data) {
             dbUser = ContactApi.isRegistered(phone, usersList);
 
             if(dbUser) {
-                phoneContact.push({name: name, phone: phone, inDb: true, lvl: dbUser.lvl});
+                phoneContact.push({name: name, phone: phone, inDb: true, lvl: dbUser.lvl, login: dbUser.name});
 
                 continue;
             }

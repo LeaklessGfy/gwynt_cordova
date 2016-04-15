@@ -14,7 +14,7 @@ var Hydrator = {
     },
 
     handleInDbContact: function (contact) {
-        return "<br><hr><li>Name: "+ contact.name + "/ lvl:" + contact.lvl + "Phone: "+contact.phoneNumber+"</li><br><hr>";
+        return "<br><hr><li>Name: "+ contact.name + "/ Login : "+contact.login+"/ lvl:" + contact.lvl + "Phone: "+contact.phoneNumber+"</li><br><hr>";
     },
 
     handleNonRegisterContact: function (contact) {
