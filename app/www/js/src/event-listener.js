@@ -11,7 +11,6 @@ var app = {
     onDeviceReady: function() {
         camera.init();
         googleAnalytics.init();
-        //camera.init();
         app.setMenu();
     },
 
