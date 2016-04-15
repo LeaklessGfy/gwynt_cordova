@@ -5,7 +5,7 @@
 * Maxime Blanchard
 * Vincent Rasquier
 * Ludovic Dewet
-* Thibault Gouint
+* Thibault Gouin
 * Jean-Nicolas Correa
 
 ## Projet GWYNT

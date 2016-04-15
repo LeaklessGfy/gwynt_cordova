@@ -2,6 +2,10 @@
 
 ## Jeux de cartes stratégique
 
+Un utilisateur n'ayant jamais joué au jeu The Witcher peut jouer au Gwynt sans en connaitre l'univers.
+Le Gwynt ne se réfère a The Witcher que par le nom de certains personnages et les illustrations des cartes.
+Les régles du jeu de carte (Gwynt) n'a rien à voir avec le jeu The Witcher.
+
 ### Post It orange (rendu n°1)
 
 * Ajouter une animation lorsqu'une manche est gagnée
@@ -16,3 +20,4 @@
 ### Post It rose
 
 * Créer ses propres cartes
+
