@@ -43,6 +43,17 @@
 * Plus de 72 millions de téléphones portables activés = plus d'un téléphone par personne.
 * Les mobinautes surfent en moyenne **58 minutes par jour** sur leur smartphone.
 * Les mobinautes membres des réseaux sociaux y passent en moyenne **1h29 par jour** (sur leur smartphone).
+* 6% des 18-24 ans consultent leur smartphone plus de 200 fois par jour.
+* Plus de 50% de la population âgée de 11 ans et plus est équipée.
+* 16% accèdent à leur smartphone dans les 5 minutes qui suivent leur réveil.
+* 35% lorsqu’on ne s’intéresse qu'aux 18-24 ans.
+* Utilisation en mouvement
+	- 72% des 18-24 ans utilisent leur smartphone en marchant
+	- 38% en traversant la rue
+	- 22% en conduisant
+* 10% des détenteurs de smartphone regardent la TV dessus.
+* 56% utilisent leur smartphone pour prendre une photo (72% des 18-24 ans.)
+* 40% du temps passé sur smartphone correspond à l’usage d’applications de communication ou de réseaux sociaux.
 
 ## Aux USA
 
