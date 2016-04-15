@@ -19,6 +19,8 @@ var app = {
         googleAnalytics.init();
         app.setMenu();
         globalization.init();
+
+        app.findGeoloc();
     },
 
     setMenu: function () {

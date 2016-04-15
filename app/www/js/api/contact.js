@@ -19,6 +19,8 @@ ContactApi.prototype.process = function (data) {
     var usersList = data.content;
     var contacts = ContactApi.contacts;
 
+    alert(JSON.stringify(usersList));
+
     for (var i = 0; i < contacts.length; i++) {
         if(contacts[i].displayName && contacts[i].phoneNumbers) {
             name = contacts[i].displayName;
