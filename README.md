@@ -5,8 +5,8 @@
 * Maxime Blanchard
 * Vincent Rasquier
 * Ludovic Dewet
-* Thibault Gouint
 * Jean-Nicolas Correa
+* Thibault Gouin
 
 ## Projet GWYNT
 Jeu de carte multijoueur stratégique en référence à "The Witcher 3".
