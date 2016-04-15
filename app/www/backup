@@ -1,0 +1,28 @@
+<div id="contact">
+            <h1>Vos contact :</h1>
+        </div>
+
+        <table id="table">
+            <tr>
+                <th>Pseudo</th>
+                <th>Niveau</th>
+                <th>Numéro</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            <tr>
+                <td>Camille</td>
+                <td>45</td>
+                <td>0563689522</td>
+                <td>48.66652</td>
+                <td>2.36525</td>
+            </tr>
+        </table>
+
+        <img id="smallImage" src="" alt="" width="100px">
+
+        <button>Capture Photo</button>
+
+        <footer>
+            gwynt.fr
+        </footer>
