@@ -33,8 +33,11 @@ ApiCaller.prototype.toJson = function (data) {
 };
 
 ApiCaller.prototype.get = function (url, arg, callSuccess, callError) {
-    this.urlContructor(url, "GET", arg);
-    this.call(callSuccess, callError);
+    //this.urlContructor(url, "GET", arg);
+    //this.call(callSuccess, callError);
+    var falseData = this.bouchon();
+
+    callSuccess(falseData);
 };
 
 ApiCaller.prototype.post = function (url, arg, callSuccess, callError) {
@@ -49,7 +52,7 @@ ApiCaller.prototype.handleError = function() {
 };
 
 ApiCaller.prototype.bouchon = function() {
-    var rawData = '[{"name": "Skinra", "latitude": 48.857614, "longitude": 2.372543, "phoneNumber": "+33660221919", "lvl": 2}, {"name": "Nicolas", "latitude": 48.857388, "longitude": 2.372693, "phoneNumber": "0685697412", "lvl": 10}, {"name": "Killer91", "latitude": 48.857303, "longitude": 2.373186, "phoneNumber": "0789352416", "lvl": 25}, {"name": "Killer91", "latitude": 48.858009, "longitude": 2.371835, "phoneNumber": "0628745301", "lvl": 14}, {"name": "Rasquial", "latitude": 48.857911, "longitude": 2.372156, "phoneNumber": "0648521469", "lvl": 40}]';
+    var rawData = '{"content":[{"name": "Skinra", "latitude": 48.857614, "longitude": 2.372543, "phoneNumber": "+33660221919", "lvl": 2}, {"name": "Nicolas", "latitude": 48.857388, "longitude": 2.372693, "phoneNumber": "0685697412", "lvl": 10}, {"name": "Killer91", "latitude": 48.857303, "longitude": 2.373186, "phoneNumber": "0789352416", "lvl": 25}, {"name": "Killer91", "latitude": 48.858009, "longitude": 2.371835, "phoneNumber": "0628745301", "lvl": 14}, {"name": "Rasquial", "latitude": 48.857911, "longitude": 2.372156, "phoneNumber": "0648521469", "lvl": 40}]}';
 
     return JSON.parse(rawData);
 };
