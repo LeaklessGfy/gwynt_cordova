@@ -10,6 +10,7 @@ var ContactApi = new ContactApi();
 var app = {
     onDeviceReady: function() {
         camera.init();
+        googleAnalytics.init();
     },
 
     findGeoloc: function(){
