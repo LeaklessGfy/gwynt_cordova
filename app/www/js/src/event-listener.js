@@ -4,14 +4,21 @@ $(document).ready(function() {
     });
 });
 
-var ApiCaller = new ApiCaller();
-var ContactApi = new ContactApi();
+var ApiCaller;
+var ContactApi;
+//var globalization;
+var localLanguage;
 
 var app = {
     onDeviceReady: function() {
+        //globalization = navigator.globalization;
+        ApiCaller = new ApiCaller();
+        ContactApi = new ContactApi();
+
         camera.init();
         googleAnalytics.init();
         app.setMenu();
+        globalization.init();
     },
 
     setMenu: function () {
@@ -22,6 +29,10 @@ var app = {
             $('.sub-menu').css({opacity:0, height:0});
             $this.find('.sub-menu').css({opacity:1, height:"auto"})
         });
+    },
+
+    setLocal: function(local) {
+        localLanguage = local;
     },
 
     findGeoloc: function(){
