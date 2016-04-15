@@ -19,4 +19,4 @@ Les règles du jeu de carte (Gwynt) n'a rien à voir avec le jeu The Witcher.
 
 ### Post It rose
 
-* Créer ses propres cartes
+* Créer ses propres cartes.
