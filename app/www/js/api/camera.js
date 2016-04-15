@@ -15,7 +15,6 @@ var camera = {
         });
 
         $("#choose-picture").click(function() {
-            alert(pictureSource.SAVEDPHOTOALBUM);
             camera.getPhoto(pictureSource.SAVEDPHOTOALBUM);
         });
     },

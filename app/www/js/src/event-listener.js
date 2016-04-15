@@ -6,12 +6,10 @@ $(document).ready(function() {
 
 var ApiCaller;
 var ContactApi;
-//var globalization;
 var localLanguage;
 
 var app = {
     onDeviceReady: function() {
-        //globalization = navigator.globalization;
         ApiCaller = new ApiCaller();
         ContactApi = new ContactApi();
 

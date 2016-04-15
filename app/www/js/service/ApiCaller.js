@@ -54,5 +54,18 @@ ApiCaller.prototype.handleError = function() {
 ApiCaller.prototype.bouchon = function() {
     var rawData = '{"content":[{"name": "Skinra", "latitude": 48.857614, "longitude": 2.372543, "phoneNumber": "+33660221919", "lvl": 2}, {"name": "Nicolas", "latitude": 48.857388, "longitude": 2.372693, "phoneNumber": "0685697412", "lvl": 10}, {"name": "Killer91", "latitude": 48.857303, "longitude": 2.373186, "phoneNumber": "0789352416", "lvl": 25}, {"name": "Killer91", "latitude": 48.858009, "longitude": 2.371835, "phoneNumber": "0628745301", "lvl": 14}, {"name": "Rasquial", "latitude": 48.857911, "longitude": 2.372156, "phoneNumber": "0648521469", "lvl": 40}]}';
 
+    $.ajax({
+        url: "http://172.16.3.224:3000/users/false",
+        dataType: "json",
+        type: "GET",
+
+        success: function(data) {
+            alert(JSON.stringify(data.content));
+        },
+        error: function () {
+            alert("ERR");
+        }
+    });
+
     return JSON.parse(rawData);
 };
