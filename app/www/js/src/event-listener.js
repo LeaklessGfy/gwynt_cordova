@@ -11,26 +11,13 @@ var localLanguage;
 var app = {
     onDeviceReady: function() {
         navigator.splashscreen.show();
-
         ApiCaller = new ApiCaller();
-        ContactApi = new ContactApi();
 
-        camera.init();
-        googleAnalytics.init();
-        app.setMenu();
+        //googleAnalytics.init();
         globalization.init();
 
-        app.findGeoloc();
-    },
-
-    setMenu: function () {
-        var profilState = false;
-        var $btn = $('.btn');
-        $btn.on('click', function(){
-            var $this = $(this);
-            $('.sub-menu').css({opacity:0, height:0});
-            $this.find('.sub-menu').css({opacity:1, height:"auto"})
-        });
+        profilPage.init();
+        //app.findGeoloc();
     },
 
     setLocal: function(local) {

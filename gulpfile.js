@@ -55,6 +55,14 @@ gulp.task('apiJs', function () {
     //.pipe(notify({ message: 'Custom scripts task complete', onLast: true }));
 });
 
+gulp.task('pageJs', function () {
+    return gulp.src(path.js + 'page/**/*.js')
+        .pipe(concat('page.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(path.js));
+    //.pipe(notify({ message: 'Custom scripts task complete', onLast: true }));
+});
+
 gulp.task('scriptsJs', function () {
     return gulp.src(path.js + 'src/**/*.js')
         .pipe(concat('master.min.js'))
@@ -75,6 +83,6 @@ gulp.task('watch', function () {
     gulp.watch(path.js + '**/*.js', ['scriptsJs']);
 });
 
-gulp.task('default', ['styles','vendorsJS','serviceJs','apiJs','scriptsJs','img']);
+gulp.task('default', ['styles','vendorsJS','serviceJs','apiJs','pageJs','scriptsJs','img']);
 
 

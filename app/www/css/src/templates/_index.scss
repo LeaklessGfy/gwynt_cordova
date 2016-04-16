@@ -12,63 +12,50 @@ td, th {
   header {
     h1 {
       text-align: center;
-      background: #E1E5EC;
-      color: #333333;
+      background: dimgrey;
+      color: #f9f2f4;
       padding: 10px 0;
-      height: 50px;
+      font-size: 2.3em;
       text-transform: uppercase;
     }
   }
+
   background-color: #F0F0F0;
   color: #333333;
-  font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+
   #profil {
-    position: relative;
-    #menu {
-      background-color: $primary;
-      height: 30px;
-      .btn {
-        line-height: 30px;
+    padding: 10px;
+
+    .sub-menu {
+      ul {
+        margin: 10px auto;
         text-align: center;
-        width: 50%;
-        font-size: 16px;
-        float: left;
-        display: inline-block;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-        color: #FFFFFF;
-        font-weight: 600;
-        position: relative;
-        &:after {
-          content: '';
-          position: absolute;
+
+        li {
           display: inline-block;
-          height: 30px;
-          width: 1px;
-          background-color: #fff;
-          right: 0;
-          top: 0;
-        }
-        &:last-child {
-          &:after {
-            display: none;
+          padding: 0 30px;
+
+          a {
+            display: inline;
+            text-transform: uppercase;
+            color: #333333;
+            font-size: 1.4em;
+
+            &.actif {
+              border-bottom: 2px solid red;
+              color: red;
+            }
           }
         }
       }
     }
 
-    .sub-menu {
-      position: absolute;
-      top: 30px;
-      width: 100%;
-      background-color: #E1E5EC;
-      left: 0;
-      overflow: hidden;
-      height: 0;
-      transition:(all, 0.3 s);
-      a {
-        color: $primary;
-      }
+    .content {
+      margin-top: 20px;
+      padding: 10px;
+      background: white;
+      box-shadow: 0px 5px 10px 1px #cfcfcf;
     }
   }
 }

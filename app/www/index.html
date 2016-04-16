@@ -16,42 +16,19 @@
 
         <!-- PROFIL PARTIAL -->
         <div id="profil">
-            <div id="menu">
+            <div class="sub-menu">
                 <ul>
-                    <li class="btn" id="btn-profil">
-                        Profil
-                        <ul class="sub-menu" id="camera">
-                            <li>
-                                <a href="#" id="take-picture">Prendre une photo</a>
-                            </li>
-                            <li>
-                                <a href="#" id="choose-picture">Choisir une photo</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="#" class="actif" data-id="profil-info">Profil</a>
                     </li>
-                    <li class="btn" id="btn-contact">
-                        Contact
-                        <ul class="sub-menu" id="contact">
-                            <li>
-                                <a href="#" id="find-contact">Importer ses contacts</a>
-                            </li>
-                            <li>
-                                <a href="#" id="send-analytics">Send Analytics</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="#" data-id="contact-info">Contact</a>
                     </li>
                 </ul>
             </div>
 
-            <hr>
-
-            <h2 id="langTitle">Bienvenue</h2>
-
-            <ul id="contact-list">
-            </ul>
-
-            <img id="profil-img" src="" alt="" width="300px">
-            <img id="largeImage" alt="" src="" width="300px">
+            <div class="content">
+            </div>
         </div>
 
         <!-- LIB -->
@@ -61,6 +38,7 @@
         <!-- APP LOGIC -->
         <script type="text/javascript" src="js/service.min.js"></script>
         <script type="text/javascript" src="js/api.min.js"></script>
+        <script type="text/javascript" src="js/page.min.js"></script>
         <script type="text/javascript" src="js/master.min.js"></script>
     </body>
 </html>
