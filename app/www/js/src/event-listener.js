@@ -14,10 +14,10 @@ var app = {
         ApiCaller = new ApiCaller();
 
         //googleAnalytics.init();
-        globalization.init();
+        //globalization.init();
+        //app.findGeoloc();
 
         profilPage.init();
-        //app.findGeoloc();
     },
 
     setLocal: function(local) {

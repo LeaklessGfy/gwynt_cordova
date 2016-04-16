@@ -18,6 +18,7 @@ ContactApi.prototype.findContacts = function () {
     options.filter = "";
     options.multiple = true;
 
+    Loader.start();
     navigator.contacts.find(["*"], this.onSuccess, this.onError, options);
 };
 
@@ -41,6 +42,8 @@ ContactApi.prototype.onSuccess = function (contacts) {
 
     $("#contact-list").append(fullHtml);
     ContactApi.contacts = phoneContact;
+
+    Loader.stop();
 };
 
 ContactApi.prototype.onError = function (contactError) {

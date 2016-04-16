@@ -1,7 +1,19 @@
 var profilPage = {
     init: function() {
-        profilPage.eventListener();
-        profilPage.showProfilInfo();
+        profilPage.display();
+    },
+
+    display: function() {
+        var profil = $("#profil");
+
+        if(profil.length == 0) {
+            $("#main-content").append($('<div>').load("./js/page/profil/index.html", function() {
+                profilPage.eventListener();
+                profilPage.showProfilInfo();
+            }));
+        }
+
+        profil.show();
     },
 
     eventListener: function(){
