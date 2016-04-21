@@ -1,3 +1,5 @@
+document.addEventListener("online", network.checkConnection, false);
+
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
         app.onDeviceReady();
@@ -7,7 +9,6 @@ $(document).ready(function() {
 var ApiCaller;
 var ContactApi;
 var localLanguage;
-var dynamicPageIndex = 0;
 var mainView;
 
 var app = {
