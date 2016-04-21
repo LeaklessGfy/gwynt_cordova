@@ -30,5 +30,4 @@
     <feature name="Contacts">
         <param name="ios-package" value="CDVContacts" />
     </feature>
-
 </widget>

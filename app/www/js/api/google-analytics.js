@@ -1,7 +1,7 @@
 var googleAnalytics = {
     init: function () {
-        window.analytics.startTrackerWithId('UA-76476127-1');
-        googleAnalytics.eventListener();
+        //window.analytics.startTrackerWithId('UA-76476127-1');
+        //googleAnalytics.eventListener();
     },
 
     eventListener: function () {
