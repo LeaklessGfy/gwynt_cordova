@@ -4,7 +4,7 @@ var compass = {
         navigator.compass.watchHeading(compass.onSuccess, compass.onError, options);
     },
     onSuccess: function(heading) {
-        if(heading.magneticHeading < 300) {
+        if(heading.magneticHeading > 300) {
             alert('Heading: ' + heading.magneticHeading);
         }
     },
