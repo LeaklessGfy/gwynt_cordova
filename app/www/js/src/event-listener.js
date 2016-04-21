@@ -2,7 +2,6 @@ document.addEventListener("online", network.checkConnection, false);
 
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
-        navigator.splashscreen.show();
         app.onDeviceReady();
     });
 });
@@ -14,41 +13,75 @@ var mainView;
 
 var app = {
     onDeviceReady: function() {
-        navigator.splashscreen.hide();
         ApiCaller = new ApiCaller();
-
-        StatusBar.backgroundColorByHexString("#40A497");
+        ContactApi = new ContactApi();
 
         var myApp = new Framework7();
-        var $$ = Dom7;
+        //var $$ = Dom7;
 
         mainView = myApp.addView('.view-main', {
             dynamicNavbar: true
         });
 
-        $$('.create-profil').on('click', function () {
+        app.eventListener();
+    },
+
+    eventListener: function () {
+        $('.page-profil').on('click', function () {
             app.profilPage();
         });
 
-        $$('.create-geoloc').on('click', function () {
-            app.findGeoloc();
+        $('.page-globalization').on('click', function () {
+            app.globalizationPage();
         });
 
-        //googleAnalytics.init();
-        //globalization.init();
-        compass.init();
-    },
+        $('.page-google-analytics').on('click', function() {
+            app.googleAnalyticsPage();
+        });
 
-    setLocal: function(local) {
-        localLanguage = local;
+        $('.page-compass').on('click', function () {
+           app.compassPage();
+        });
+
+        $('.page-status-bar').on('click', function () {
+           app.statusBarPage();
+        });
+
+        $('.page-splash-screen').on('click', function () {
+            app.splashScreenPage();
+        });
+
+        $('.page-geoloc').on('click', function () {
+            app.geolocPage();
+        });
     },
 
     profilPage: function () {
         mainView.router.loadContent($('#profilPage').html());
         profilPage.init();
     },
+    
+    globalizationPage: function () {
+        globalization.init();
+    },
 
-    findGeoloc: function(){
+    googleAnalyticsPage: function() {
+        googleAnalytics.init();
+    },
+
+    compassPage: function() {
+        compass.init();
+    },
+
+    statusBarPage: function () {
+        StatusBar.backgroundColorByHexString("#40A497");
+    },
+
+    splashScreenPage: function () {
+        navigator.splashscreen.hide();
+    },
+
+    geolocPage: function(){
         var onSuccess = function(position) {
             alert('Latitude: '          + position.coords.latitude          + '\n' +
                 'Longitude: '         + position.coords.longitude         + '\n' +

@@ -1,37 +1,33 @@
+var profilInfo,
+    contactInfo,
+    appender;
+
 var profilPage = {
     init: function() {
-        //profilPage.display();
         profilPage.eventListener();
+
+        profilInfo = $("#profil-info");
+        contactInfo = $("#contact-info");
+        appender = $("#profil .content");
+
         profilPage.showProfilInfo();
-    },
-
-    display: function() {
-        var profil = $("#profil");
-
-        if(profil.length == 0) {
-            $("#main-content").append($('<div>').load("./js/page/profil/index.html", function() {
-                profilPage.eventListener();
-                profilPage.showProfilInfo();
-            }));
-        }
-
-        profil.show();
     },
 
     eventListener: function(){
         $("#profil .sub-menu li a").click(function() {
             profilPage.handleMenu($(this));
-            profilPage.showRightContent($(this));
+            profilPage.handleContent($(this).data('id'));
         });
     },
 
     handleMenu: function($this) {
         $("#profil .sub-menu li a").removeClass("actif");
+
         $this.addClass("actif");
     },
     
-    showRightContent: function($this) {
-        if($this.data("id") == "profil-info") {
+    handleContent: function(id) {
+        if(id == "profil-info") {
             profilPage.showProfilInfo();
         } else {
             profilPage.showContactInfo();
@@ -39,28 +35,16 @@ var profilPage = {
     },
 
     showProfilInfo: function () {
-        var profilInfo = $("#profil-info");
+        profilInfo = $("#profil-info");
+        contactInfo = $("#contact-info");
 
-        if(profilInfo.length == 0) {
-            $("#profil .content").append($('<div>').load("./js/page/profil/profil-info.html", function() {
-                camera.init();
-            }));
-        }
-
-        $("#contact-info").hide();
-        profilInfo.show();
+        HydratorCaller.hydrate(profilInfo, appender, "profil/profil-info.html", camera.init, contactInfo);
     },
     
     showContactInfo: function () {
-        var contactInfo = $("#contact-info");
+        profilInfo = $("#profil-info");
+        contactInfo = $("#contact-info");
 
-        if(contactInfo.length == 0) {
-            $("#profil .content").append($('<div>').load("./js/page/profil/contact-info.html", function() {
-                ContactApi = new ContactApi();
-            }));
-        }
-
-        $("#profil-info").hide();
-        contactInfo.show();
+        HydratorCaller.hydrate(contactInfo, appender, "profil/contact-info.html", function (){}, profilInfo);
     }
 };

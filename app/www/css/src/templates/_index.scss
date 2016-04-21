@@ -1,11 +1,11 @@
 #main-content {
-  .content-block-inner {
-    margin: 0 auto;
-  }
-
   .views {
     text-align: center;
     margin: 0 auto;
+  }
+
+  .navbar-fixed .page-content, .navbar-through .page-content {
+    padding-top: 0;
   }
 
   header {

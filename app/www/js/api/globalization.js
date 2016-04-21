@@ -3,11 +3,16 @@ var globalization = {
         navigator.globalization.getPreferredLanguage(
             function (language) {
                 alert('language: ' + language.value + '\n');
-                app.setLocal(language.value);
+
+                globalization.setLocal(language.value);
                 globalization.changeMsg();
             },
             function () {alert('Error getting language\n');}
         );
+    },
+
+    setLocal: function (local) {
+        localLanguage = local;
     },
 
     changeMsg: function() {
