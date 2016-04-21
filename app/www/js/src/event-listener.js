@@ -12,12 +12,11 @@ var app = {
     onDeviceReady: function() {
         navigator.splashscreen.show();
         ApiCaller = new ApiCaller();
-
+        profilPage.init();
         //googleAnalytics.init();
         //globalization.init();
         //app.findGeoloc();
-
-        profilPage.init();
+        compass.init();
     },
 
     setLocal: function(local) {
