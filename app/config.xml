@@ -30,4 +30,10 @@
     <feature name="Contacts">
         <param name="ios-package" value="CDVContacts" />
     </feature>
+    <feature name="Compass">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+    <feature name="Compass">
+        <param name="android-package" value="org.apache.cordova.CompassListener" />
+    </feature>
 </widget>
