@@ -1,5 +1,3 @@
-document.addEventListener("online", network.checkConnection, false);
-
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
         app.onDeviceReady();
@@ -14,7 +12,7 @@ var app = {
     onDeviceReady: function(){
         //StatusBar.backgroundColorByHexString("#40A497");
         StatusBar.hide();
-
+        network.checkConnection();
         navigator.splashscreen.show();
         ApiCaller = new ApiCaller();
         profilPage.init();
