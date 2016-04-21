@@ -36,7 +36,7 @@
     <feature name="Compass">
         <param name="android-package" value="org.apache.cordova.CompassListener" />
     </feature>
+
     <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
     <plugin name="NetworkStatus" value="CDVConnection" />
-
 </widget>

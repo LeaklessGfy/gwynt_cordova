@@ -11,7 +11,10 @@ var ContactApi;
 var localLanguage;
 
 var app = {
-    onDeviceReady: function() {
+    onDeviceReady: function(){
+        //StatusBar.backgroundColorByHexString("#40A497");
+        StatusBar.hide();
+
         navigator.splashscreen.show();
         ApiCaller = new ApiCaller();
         profilPage.init();
