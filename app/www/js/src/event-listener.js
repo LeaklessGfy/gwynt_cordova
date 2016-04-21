@@ -18,7 +18,6 @@ var app = {
         ApiCaller = new ApiCaller();
 
         StatusBar.backgroundColorByHexString("#40A497");
-        //StatusBar.hide();
 
         var myApp = new Framework7();
         var $$ = Dom7;

@@ -1,9 +1,12 @@
 var compass = {
     init: function () {
-        navigator.compass.getCurrentHeading(compass.onSuccess, compass.onError);
+        var options = { frequency: 1000 };  // Update every 3 seconds
+        navigator.compass.watchHeading(compass.onSuccess, compass.onError, options);
     },
     onSuccess: function(heading) {
-        alert('Heading: ' + heading.magneticHeading);
+        if(heading.magneticHeading < 300) {
+            alert('Heading: ' + heading.magneticHeading);
+        }
     },
     onError: function(compassError) {
         alert('Compass Error: ' + compassError.code);
