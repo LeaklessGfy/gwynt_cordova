@@ -2,6 +2,7 @@ document.addEventListener("online", network.checkConnection, false);
 
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
+        navigator.splashscreen.show();
         app.onDeviceReady();
     });
 });
@@ -13,17 +14,16 @@ var mainView;
 
 var app = {
     onDeviceReady: function() {
-        navigator.splashscreen.show();
+        navigator.splashscreen.hide();
         ApiCaller = new ApiCaller();
-        //StatusBar.backgroundColorByHexString("#40A497");
+
+        StatusBar.backgroundColorByHexString("#40A497");
         //StatusBar.hide();
 
         var myApp = new Framework7();
-        // Export selectors engine
         var $$ = Dom7;
 
         mainView = myApp.addView('.view-main', {
-            // Because we use fixed-through navbar we can enable dynamic navbar
             dynamicNavbar: true
         });
 
@@ -31,10 +31,12 @@ var app = {
             app.profilPage();
         });
 
-        //profilPage.init();
+        $$('.create-geoloc').on('click', function () {
+            app.findGeoloc();
+        });
+
         //googleAnalytics.init();
         //globalization.init();
-        //app.findGeoloc();
         compass.init();
     },
 

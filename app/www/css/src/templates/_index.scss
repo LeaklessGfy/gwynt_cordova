@@ -1,14 +1,13 @@
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid black;
-  padding: 10px;
-}
-
 #main-content {
+  .content-block-inner {
+    margin: 0 auto;
+  }
+
+  .views {
+    text-align: center;
+    margin: 0 auto;
+  }
+
   header {
     h1 {
       text-align: center;
@@ -19,10 +18,6 @@ td, th {
       text-transform: uppercase;
     }
   }
-
-  background-color: #B5BABF;
-  color: #333333;
-  font-family: 'Open Sans', sans-serif;
 
   #profil {
     padding: 10px;
