@@ -1,3 +1,5 @@
+document.addEventListener("online", network.checkConnection, false);
+
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
         app.onDeviceReady();
