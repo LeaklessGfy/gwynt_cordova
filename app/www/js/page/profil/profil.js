@@ -1,6 +1,8 @@
 var profilPage = {
     init: function() {
-        profilPage.display();
+        //profilPage.display();
+        profilPage.eventListener();
+        profilPage.showProfilInfo();
     },
 
     display: function() {

@@ -27,7 +27,7 @@ gulp.task('styles', function () {
             cascade: false
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(path.css))
+        .pipe(gulp.dest(path.css));
         //.pipe(notify({ message: 'Styles task complete', onLast: true }));
 });
 
@@ -37,6 +37,13 @@ gulp.task('vendorsJS', function () {
         .pipe(uglify())
         .pipe(gulp.dest(path.js));
         //.pipe(notify({ message: 'Vendor scripts task complete', onLast: true }));
+});
+
+gulp.task('framework7', function () {
+    return gulp.src(path.js + 'framework7/**/*.js')
+        .pipe(concat('framework7.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(path.js));
 });
 
 gulp.task('serviceJs', function () {
@@ -83,6 +90,6 @@ gulp.task('watch', function () {
     gulp.watch(path.js + '**/*.js', ['scriptsJs']);
 });
 
-gulp.task('default', ['styles','vendorsJS','serviceJs','apiJs','pageJs','scriptsJs','img']);
+gulp.task('default', ['styles','vendorsJS','framework7','serviceJs','apiJs','pageJs','scriptsJs','img']);
 
 
