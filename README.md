@@ -44,6 +44,12 @@ Les platforms ne sont pas sur la branche master pour ne pas mélanger les utilis
 * cordova plugin add cordova-plugin-network-information
 * cordova plugin add cordova-plugin-device-orientation
 * cordova plugin add cordova-plugin-x-socialsharing
+* cordova plugin add cordova-plugin-camera
+* cordova plugin add cordova-plugin-contacts
+* cordova plugin add cordova-plugin-geolocation
+* cordova plugin add cordova-plugin-globalization
+* cordova plugin add cordova-plugin-google-analytics
+* cordova plugin add cordova-plugin-splashscreen
 
 **Build ou Emulate**
 
