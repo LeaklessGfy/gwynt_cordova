@@ -19,9 +19,10 @@ var app = {
         if(localStorage != undefined)
         {
            alert("Local Storage is supported");
-            //localStorage.setItem("pseudo", "titidu91");
             var value = localStorage.getItem("pseudo");
             $('#pseudo-c').text(value);
+            var valueBg = localStorage.getItem("bg");
+            $('#main-content').addClass("bg"+valueBg);
         }
         else
         {
@@ -32,10 +33,19 @@ var app = {
             var inputPseudo = $('#pseudo-form').val();
             if(inputPseudo != ''){
                 localStorage.setItem("pseudo", inputPseudo);
-
                 $('#pseudo-c').text(inputPseudo);
             }
+
         });
+
+        $('#btn-bg').click(function(){
+            var inputBg = $('#bg-form').val();
+            if(inputBg != ''){
+                localStorage.setItem("bg", inputBg);
+                $('#main-content').removeClass('bg1 bg2 bg3').addClass('bg'+inputBg);
+            }
+        });
+
 
         ApiCaller = new ApiCaller();
 
