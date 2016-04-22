@@ -2,6 +2,8 @@
 
 ## Setup
 
+Les platforms ne sont pas sur la branche master pour ne pas mélanger les utilisateurs qui sont sur iOS et android. Nous avons donc fait des git ignore pour éviter les conflits.
+
 **Installer cordova sur sa machine**
 
 	- sudo npm install -g cordova
@@ -41,6 +43,7 @@
 * cordova plugin add cordova-plugin-statusbar
 * cordova plugin add cordova-plugin-network-information
 * cordova plugin add cordova-plugin-device-orientation
+* cordova plugin add cordova-plugin-x-socialsharing
 
 **Build ou Emulate**
 
