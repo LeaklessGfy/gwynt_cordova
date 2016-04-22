@@ -42,7 +42,7 @@ var app = {
             var inputBg = $('#bg-form').val();
             if(inputBg != ''){
                 localStorage.setItem("bg", inputBg);
-                $('#main-content').removeClass('bg1, bg2, bg3').addClass('bg'+inputBg);
+                $('#main-content').removeClass('bg1 bg2 bg3').addClass('bg'+inputBg);
             }
         });
 
