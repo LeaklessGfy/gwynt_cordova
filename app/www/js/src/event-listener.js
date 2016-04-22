@@ -21,7 +21,7 @@ var app = {
             var value = localStorage.getItem("pseudo");
             $('#pseudo-c').text(value);
             var valueBg = localStorage.getItem("bg");
-            $('#main-content').addClass("bg"+valueBg);
+            $('.page-content').addClass("bg"+valueBg);
         }
         else
         {
