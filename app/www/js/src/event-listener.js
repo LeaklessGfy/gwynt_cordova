@@ -19,7 +19,7 @@ var app = {
         if(localStorage != undefined)
         {
            alert("Local Storage is supported");
-            localStorage.setItem("pseudo", "titidu91");
+            //localStorage.setItem("pseudo", "titidu91");
             var value = localStorage.getItem("pseudo");
             $('#pseudo-c').text(value);
         }

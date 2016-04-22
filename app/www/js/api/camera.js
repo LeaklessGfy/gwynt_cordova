@@ -26,6 +26,7 @@ var camera = {
     // Called when a photo is successfully retrieved
     onPhotoURISuccess: function (imageURI) {
         $("#profil-img").attr("src", imageURI);
+        alert(imageURI);
     },
 
     // A button will call this function
