@@ -15,6 +15,28 @@ var mainView;
 var app = {
     onDeviceReady: function() {
         navigator.splashscreen.hide();
+
+        if(localStorage != undefined)
+        {
+           alert("Local Storage is supported");
+            localStorage.setItem("pseudo", "titidu91");
+            var value = localStorage.getItem("pseudo");
+            $('#pseudo-c').text(value);
+        }
+        else
+        {
+            alert("No support");
+        }
+
+        $('#btn-pseudo').click(function(){
+            var inputPseudo = $('#pseudo-form').val();
+            if(inputPseudo != ''){
+                localStorage.setItem("pseudo", inputPseudo);
+
+                $('#pseudo-c').text(inputPseudo);
+            }
+        });
+
         ApiCaller = new ApiCaller();
 
         StatusBar.backgroundColorByHexString("#40A497");
@@ -36,7 +58,7 @@ var app = {
 
         //googleAnalytics.init();
         //globalization.init();
-        compass.init();
+        //compass.init();
     },
 
     setLocal: function(local) {

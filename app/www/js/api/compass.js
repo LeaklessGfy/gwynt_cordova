@@ -1,6 +1,6 @@
 var compass = {
     init: function () {
-        //var options = { frequency: 1000 };  // Update every 3 seconds
+        //var options = { frequency: 1000 };
         //navigator.compass.watchHeading(compass.onSuccess, compass.onError, options);
     },
     onSuccess: function(heading) {
