@@ -86,12 +86,12 @@
     }
     &.bg1{
       &:after{
-        background: url('../img/bg/bg1.png') center center;
+        background: #000000 url('../img/bg/bg1.png') center center;
       }
     }
     &.bg2{
       &:after{
-        background: url('../img/bg/bg2.jpg') center center;
+        background: #000000 url('../img/bg/bg2.jpg') center center;
       }
     }
   }
