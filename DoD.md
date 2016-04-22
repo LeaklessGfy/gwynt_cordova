@@ -2,7 +2,7 @@
 
 
 	- Pull sur device externe (smartphone) 
-	- tester sur le téléphone de Vincent
+	- tester sur un téléphone android
 	- Faire les stories séparement et les tester avec le groupe une par une pour la valider
 
 
