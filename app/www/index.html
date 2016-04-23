@@ -81,6 +81,7 @@
                                             <div class="item-content">
                                                 <div class="item-inner">
                                                     <div class="item-title">Profil</div>
+
                                                 </div>
                                             </div>
                                         </a>
@@ -137,6 +138,26 @@
                                     </li>
 
                                     <li>
+                                        <a href="#" class="page-sharing item-link">
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Sharing</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="page-network item-link">
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Network</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
                                         <a href="#" class="page-geoloc item-link">
                                             <div class="item-content">
                                                 <div class="item-inner">
@@ -173,7 +194,7 @@
                 </div>
             </div>
 
-            <div class="page" data-page="my-page">
+            <div class="page" data-page="profil">
                 <div class="page-content">
                     <div id="profil">
                         <h1>Profil</h1>
@@ -190,6 +211,28 @@
                         </div>
 
                         <div class="content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/template" id="sharingPage">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="center">Sharing</div>
+                </div>
+            </div>
+
+            <div class="page" data-page="sharing">
+                <div class="page-content">
+                    <div id="sharing">
+                        <h1>Sharing</h1>
+
+                        <div class="content">
+                            <button onclick="Sharing.shareFb();">Facebook Sharing</button>
+                            <button onclick="Sharing.shareTwitter();">Twitter Sharing</button>
                         </div>
                     </div>
                 </div>

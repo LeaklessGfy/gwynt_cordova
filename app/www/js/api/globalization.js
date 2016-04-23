@@ -1,11 +1,11 @@
-var globalization = {
+var Globalization = {
     init: function () {
         navigator.globalization.getPreferredLanguage(
             function (language) {
                 alert('language: ' + language.value + '\n');
 
-                globalization.setLocal(language.value);
-                globalization.changeMsg();
+                Globalization.setLocal(language.value);
+                Globalization.changeMsg();
             },
             function () {alert('Error getting language\n');}
         );

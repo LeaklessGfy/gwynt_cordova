@@ -1,4 +1,4 @@
-document.addEventListener("online", network.checkConnection, false);
+//document.addEventListener("online", network.checkConnection, false);
 
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
@@ -11,8 +11,12 @@ var ContactApi;
 var localLanguage;
 var mainView;
 
+var statusBarStatus = 0;
+
 var app = {
     onDeviceReady: function() {
+        navigator.splashscreen.hide();
+        
         ApiCaller = new ApiCaller();
         ContactApi = new ContactApi();
 
@@ -34,7 +38,7 @@ var app = {
         $('.page-globalization').on('click', function () {
             app.globalizationPage();
         });
-
+        
         $('.page-google-analytics').on('click', function() {
             app.googleAnalyticsPage();
         });
@@ -51,38 +55,78 @@ var app = {
             app.splashScreenPage();
         });
 
+        $('.page-sharing').on('click', function () {
+           app.sharingPage();
+        });
+
+        $('.page-network').on('click', function () {
+           app.networkPage();
+        });
+
         $('.page-geoloc').on('click', function () {
             app.geolocPage();
         });
     },
 
+    //WORK
     profilPage: function () {
         mainView.router.loadContent($('#profilPage').html());
         profilPage.init();
     },
     
+    //WORK
     globalizationPage: function () {
-        globalization.init();
+        Globalization.init();
     },
 
+    //CHECK
     googleAnalyticsPage: function() {
-        googleAnalytics.init();
+        GoogleAnalytics.init();
     },
 
+    //BUG
     compassPage: function() {
-        compass.init();
+        Compass.getCurrent();
     },
 
+    //WORK
     statusBarPage: function () {
-        StatusBar.backgroundColorByHexString("#40A497");
-    },
+        if(statusBarStatus == 0) {
+            StatusBar.backgroundColorByHexString("#40A497");
+            StatusBar.show();
 
+            statusBarStatus = 1;
+        } else {
+            StatusBar.hide();
+
+            statusBarStatus = 0;
+        }
+
+    },
+    
+    //ADD INTERVAL
     splashScreenPage: function () {
-        navigator.splashscreen.hide();
+        navigator.splashscreen.show();
     },
 
+    //WORK
+    sharingPage: function () {
+        mainView.router.loadContent($('#sharingPage').html());
+        Sharing.init(window.plugins.socialsharing);
+    },
+
+    //TO CHECK
+    networkPage: function () {
+        Network.checkConnection();
+    },
+
+    //WORK EXC LOADER
     geolocPage: function(){
+        Loader.start();
+
         var onSuccess = function(position) {
+            Loader.stop();
+
             alert('Latitude: '          + position.coords.latitude          + '\n' +
                 'Longitude: '         + position.coords.longitude         + '\n' +
                 'Altitude: '          + position.coords.altitude          + '\n' +
@@ -94,6 +138,8 @@ var app = {
         };
 
         function onError(error) {
+            Loader.stop();
+
             alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
         }

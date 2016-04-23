@@ -1,4 +1,4 @@
-var googleAnalytics = {
+var GoogleAnalytics = {
     init: function () {
         window.analytics.startTrackerWithId('UA-76476127-1');
         googleAnalytics.eventListener();

@@ -18,6 +18,23 @@ var profilPage = {
             profilPage.handleMenu($(this));
             profilPage.handleContent($(this).data('id'));
         });
+
+        $('#btn-pseudo').click(function(){
+            var inputPseudo = $('#pseudo-form').val();
+            
+            if(inputPseudo != ''){
+                localStorage.setItem("pseudo", inputPseudo);
+                $('#pseudo-c').text(inputPseudo);
+            }
+        });
+
+        $('#btn-bg').click(function(){
+            var inputBg = $('#bg-form').val();
+            
+            localStorage.setItem("bg", inputBg);
+            $('.page-content').removeClass('bg1 bg2');
+            $('.page-content').addClass('bg'+inputBg);
+        });
     },
 
     handleMenu: function($this) {
@@ -38,7 +55,15 @@ var profilPage = {
         profilInfo = $("#profil-info");
         contactInfo = $("#contact-info");
 
-        HydratorCaller.hydrate(profilInfo, appender, "profil/profil-info.html", camera.init, contactInfo);
+        HydratorCaller.hydrate(profilInfo, appender, "profil/profil-info.html", function() {
+            camera.init();
+            
+            var value = localStorage.getItem("pseudo");
+            $('#pseudo-c').text(value);
+
+            var valueBg = localStorage.getItem("bg");
+            $('.page-content').addClass("bg"+valueBg);
+        }, contactInfo);
     },
     
     showContactInfo: function () {

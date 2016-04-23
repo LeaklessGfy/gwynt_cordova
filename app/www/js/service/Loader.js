@@ -1,6 +1,8 @@
 var Loader = {
     start: function () {
-        var loader = $("#loader");
+        var loader = $("#app-loader");
+
+        alert("Start loader");
 
         if(loader.length == 0) {
             $("#main-content").append($('<div>').load("./loader.html"));
@@ -10,6 +12,6 @@ var Loader = {
     },
     
     stop: function () {
-        $("#loader").hide();
+        $("#app-loader").hide();
     }
 };
