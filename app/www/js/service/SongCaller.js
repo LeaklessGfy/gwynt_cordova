@@ -1,9 +1,10 @@
 var SongCaller = {
-    play: function (s) {
+    play: function (s, i) {
         var src = SongCaller.getMediaUrl(s);
         mp3file = new Media(src, null, SongCaller.onCreateError);
+        mp3file.play({ numberOfLoops: i });
 
-        mp3file.play();
+        return mp3file;
     },
 
     getMediaUrl: function (s) {

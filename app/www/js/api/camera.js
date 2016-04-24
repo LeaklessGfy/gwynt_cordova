@@ -30,24 +30,31 @@ var CameraApi = {
 
     // A button will call this function
     capturePhoto: function () {
-        navigator.camera.getPicture(CameraApi.onCaptureSuccess, CameraApi.onFail, {quality: 50,
-            destinationType: destType.DATA_URL, saveToPhotoAlbum: true }
+        navigator.camera.getPicture(CameraApi.onCaptureSuccess, CameraApi.onFail, {
+            quality: 50,
+            destinationType: destType.DATA_URL, 
+            saveToPhotoAlbum: true }
         );
     },
 
     // A button will call this function
     capturePhotoEdit: function () {
         // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-        navigator.camera.getPicture(CameraApi.onCaptureSuccess, CameraApi.onFail, {quality: 20,
-            allowEdit: true, destinationType: destType.DATA_URL, saveToPhotoAlbum: true }
+        navigator.camera.getPicture(CameraApi.onCaptureSuccess, CameraApi.onFail, {
+            quality: 20,
+            allowEdit: true, 
+            destinationType: destType.DATA_URL, 
+            saveToPhotoAlbum: true }
         );
     },
 
     // A button will call this function
     getPhoto: function (source) {
         // Retrieve image file location from specified source
-        navigator.camera.getPicture(CameraApi.onPhotoURISuccess, CameraApi.onFail, {quality: 50,
-            destinationType: destType.FILE_URI, sourceType: source }
+        navigator.camera.getPicture(CameraApi.onPhotoURISuccess, CameraApi.onFail, {
+            quality: 50,
+            destinationType: destType.FILE_URI, 
+            sourceType: source }
         );
     },
 

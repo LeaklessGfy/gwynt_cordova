@@ -10,8 +10,6 @@ var ApiCaller;
 var localLanguage;
 var mainView;
 
-var statusBarStatus = 0;
-
 var app = {
     onDeviceReady: function() {
         ApiCaller = new ApiCaller();
@@ -99,17 +97,7 @@ var app = {
     },
 
     statusBarPage: function () {
-        if(statusBarStatus == 0) {
-            StatusBar.backgroundColorByHexString("#40A497");
-            StatusBar.show();
-
-            statusBarStatus = 1;
-        } else {
-            StatusBar.hide();
-
-            statusBarStatus = 0;
-        }
-
+        StatusBarApi.init();
     },
     
     splashScreenPage: function () {

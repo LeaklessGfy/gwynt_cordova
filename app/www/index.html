@@ -171,29 +171,20 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
 
-                            <!--<div class="content-block-title">Side panels</div>
-                            <div class="content-block">
-                                <div class="row">
-                                    <div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>
-                                    <div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>
-                                </div>
-                            </div>-->
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!--<div class="toolbar">
-                    <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>
-                </div>-->
             </div>
         </div>
+
+        <!-- OTHER PAGE -->
 
         <script type="text/template" id="playPage">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="left"><a href="#" class="back link" id="play-end"><i class="icon icon-back"></i><span>Back</span></a></div>
                     <div class="center">Jouer</div>
                 </div>
             </div>
@@ -209,6 +200,7 @@
             </div>
         </script>
 
+        <!-- PROFIL PAGE -->
         <script type="text/template" id="profilPage">
             <div class="navbar">
                 <div class="navbar-inner">
@@ -254,8 +246,8 @@
                         <h1>Sharing</h1>
 
                         <div class="content">
-                            <button onclick="Sharing.shareFb();">Facebook Sharing</button>
-                            <button onclick="Sharing.shareTwitter();">Twitter Sharing</button>
+                            <button onclick="SharingApi.shareFb();">Facebook Sharing</button>
+                            <button onclick="SharingApi.shareTwitter();">Twitter Sharing</button>
                         </div>
                     </div>
                 </div>
