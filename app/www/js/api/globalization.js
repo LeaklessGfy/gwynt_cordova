@@ -1,14 +1,17 @@
-var Globalization = {
-    init: function () {
-        navigator.globalization.getPreferredLanguage(
-            function (language) {
-                alert('language: ' + language.value + '\n');
+var GlobalizationApi = {
+    getCurrentLocal: function () {
+        navigator.globalization.getPreferredLanguage(GlobalizationApi.onSuccess, GlobalizationApi.onError);
+    },
 
-                Globalization.setLocal(language.value);
-                Globalization.changeMsg();
-            },
-            function () {alert('Error getting language\n');}
-        );
+    onSuccess: function (language) {
+        alert('language: ' + language.value + '\n');
+
+        Globalization.setLocal(language.value);
+        Globalization.changeMsg();
+    },
+
+    onError: function () {
+        alert('Error getting language\n');
     },
 
     setLocal: function (local) {

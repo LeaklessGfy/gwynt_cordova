@@ -1,12 +1,12 @@
-var GoogleAnalytics = {
+var GoogleAnalyticsApi = {
     init: function () {
         window.analytics.startTrackerWithId('UA-76476127-1');
-        googleAnalytics.eventListener();
+        GoogleAnalyticsApi.eventListener();
     },
 
     eventListener: function () {
         $("#send-analytics").click(function() {
-            googleAnalytics.sendAnalytics();
+            GoogleAnalyticsApi.sendAnalytics();
         });
     },
 

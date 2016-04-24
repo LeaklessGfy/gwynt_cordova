@@ -10,11 +10,12 @@ var ContactApi = {
     },
 
     findContacts: function () {
+        Loader.start();
+
         var options = new ContactFindOptions();
         options.filter = "";
         options.multiple = true;
 
-        Loader.start();
         navigator.contacts.find(["*"], ContactApi.onSuccess, ContactApi.onError, options);
     },
 
@@ -25,9 +26,9 @@ var ContactApi = {
     },
 
     onError: function () {
-        alert('onError!');
-
         Loader.stop();
+
+        alert('onError!');
     },
 
     getHtml: function (contacts) {

@@ -1,17 +1,17 @@
-var Sharing = {
+var SharingApi = {
     tool: null,
     headline: "Rejoignez-moi sur Gwynt ! Et tentez de me défier !",
 
     init: function () {
-        Sharing.tool = window.plugins.socialsharing;
+        SharingApi.tool = window.plugins.socialsharing;
     },
 
     shareFb: function () {
-        Sharing.tool.shareViaFacebook(Sharing.headline, null /* img */, null /* url */, Sharing.onSuccess, Sharing.onError);
+        SharingApi.tool.shareViaFacebook(SharingApi.headline, null /* img */, null /* url */, SharingApi.onSuccess, SharingApi.onError);
     },
 
     shareTwitter: function () {
-        Sharing.tool.shareViaTwitter(Sharing.headline);
+        SharingApi.tool.shareViaTwitter(SharingApi.headline);
     },
 
     onSuccess: function () {

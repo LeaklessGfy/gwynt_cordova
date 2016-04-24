@@ -5,11 +5,7 @@ var profilInfo,
 var profilPage = {
     init: function() {
         profilPage.eventListener();
-
-        profilInfo = $("#profil-info");
-        contactInfo = $("#contact-info");
-        appender = $("#profil .content");
-
+        profilPage.refreshDomObject();
         profilPage.showProfilInfo();
     },
 
@@ -18,6 +14,12 @@ var profilPage = {
             profilPage.handleMenu($(this));
             profilPage.handleContent($(this).data('id'));
         });
+    },
+
+    refreshDomObject: function () {
+        profilInfo = $("#profil-info");
+        contactInfo = $("#contact-info");
+        appender = $("#profil .content");
     },
 
     handleMenu: function($this) {
@@ -35,15 +37,13 @@ var profilPage = {
     },
 
     showProfilInfo: function () {
-        profilInfo = $("#profil-info");
-        contactInfo = $("#contact-info");
+        profilPage.refreshDomObject();
 
         HydratorCaller.hydrate(profilInfo, appender, "profil/profil-info.html", contactInfo, profilPage.onProfilSuccess);
     },
     
     showContactInfo: function () {
-        profilInfo = $("#profil-info");
-        contactInfo = $("#contact-info");
+        profilPage.refreshDomObject();
 
         HydratorCaller.hydrate(contactInfo, appender, "profil/contact-info.html", profilInfo, profilPage.onContactSuccess);
     },
@@ -51,29 +51,10 @@ var profilPage = {
     onProfilSuccess: function () {
         CameraApi.init();
 
-        var value = localStorage.getItem("login");
-        $('#pseudo-c').text(value);
+        $('#pseudo-c').text(localStorage.getItem("login"));
+        $('.page-content').addClass("bg" + localStorage.getItem("bg"));
 
-        var valueBg = localStorage.getItem("bg");
-        $('.page-content').addClass("bg"+valueBg);
-
-        $('#btn-pseudo').click(function() {
-            var inputPseudo = $('#pseudo-form').val();
-
-            if(inputPseudo != ''){
-                localStorage.setItem("login", inputPseudo);
-                alert(localStorage.getItem("login"));
-                $('#pseudo-c').text(inputPseudo);
-            }
-        });
-
-        $('#btn-bg').click(function(){
-            var inputBg = $('#bg-form').val();
-
-            localStorage.setItem("bg", inputBg);
-            $('.page-content').removeClass('bg1 bg2');
-            $('.page-content').addClass('bg'+inputBg);
-        });
+        LocalStorageApi.init();
     },
 
     onContactSuccess: function () {
