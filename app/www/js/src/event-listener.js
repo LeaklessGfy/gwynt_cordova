@@ -1,5 +1,3 @@
-//document.addEventListener("online", network.checkConnection, false);
-
 $(document).ready(function() {
     $(document).bind("deviceready", function() {
         app.onDeviceReady();
@@ -12,7 +10,6 @@ var mainView;
 var app = {
     onDeviceReady: function() {
         var myApp = new Framework7();
-        //var $$ = Dom7;
 
         mainView = myApp.addView('.view-main', {
             dynamicNavbar: true

@@ -26,8 +26,7 @@ var fightPage = {
     chooseCards: function () {
         var elem = $("#choose-cards");
 
-        HydratorCaller.hydrate(elem, $("#main-content"), "fight/overlay.html", null, function () {
-            alert("success");
+        HydratorCaller.hydrate(elem, $("#main-content"), "fight/choose-cards.html", null, function () {
         });
     },
 
