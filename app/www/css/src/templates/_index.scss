@@ -19,6 +19,12 @@
     }
   }
 
+  .content-play {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   #profil {
     padding: 10px;
 
@@ -94,6 +100,34 @@
       &:after{
         background: #000000 url('../img/bg/bg2.jpg') center center;
       }
+    }
+  }
+
+  #fight {
+    .player{
+      background:	#444444;
+      color:		#fff;
+      height:		50px;
+      padding:	10px;
+      padding-left: 85px;
+      position:	relative;
+    }
+    .player img{
+      border-radius:	50%;
+      width:			50px;
+      height:			50px;
+      box-shadow: 	0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      position:		absolute;
+      top:			10px;
+      left:			15px;
+    }
+    .player .name{
+      font-size:		18px;
+      font-weight: 	600;
+    }
+    .player .deck{
+      font-size: 		14px;
+      font-weight:	400;
     }
   }
 }

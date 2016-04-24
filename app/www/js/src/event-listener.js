@@ -6,14 +6,11 @@ $(document).ready(function() {
     });
 });
 
-var ApiCaller;
 var localLanguage;
 var mainView;
 
 var app = {
     onDeviceReady: function() {
-        ApiCaller = new ApiCaller();
-
         var myApp = new Framework7();
         //var $$ = Dom7;
 
@@ -28,6 +25,10 @@ var app = {
     eventListener: function () {
         $('.page-play').on('click', function () {
            app.playPage();
+        });
+
+        $('.page-fight').on('click', function () {
+            app.fightPage($(this).data('id'));
         });
 
         $('.page-profil').on('click', function () {
@@ -77,6 +78,12 @@ var app = {
     playPage: function () {
         mainView.router.loadContent($('#playPage').html());
         playPage.init();
+    },
+
+    fightPage: function (id){
+        alert(id);
+        mainView.router.loadContent($('#fightPage').html());
+        fightPage.init(id);
     },
 
     profilPage: function () {
