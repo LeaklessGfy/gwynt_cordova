@@ -1,82 +1,57 @@
-var ContactApi = function () {
-    this.contacts = [];
-    this.eventListener();
-};
+var ContactApi = {
+    init: function () {
+        ContactApi.eventListener();
+    },
 
-ContactApi.prototype.eventListener = function () {
-    $("#find-contact").click(function () {
-        ContactApi.findContacts();
-    });
+    eventListener: function () {
+        $("#find-contact").click(function () {
+            ContactApi.findContacts();
+        });
+    },
 
-    $("#synchronize-contact").click(function() {
-        ContactApi.synchronize();
-    });
-};
+    findContacts: function () {
+        var options = new ContactFindOptions();
+        options.filter = "";
+        options.multiple = true;
 
-ContactApi.prototype.findContacts = function () {
-    var options = new ContactFindOptions();
-    options.filter = "";
-    options.multiple = true;
+        Loader.start();
+        navigator.contacts.find(["*"], ContactApi.onSuccess, ContactApi.onError, options);
+    },
 
-    Loader.start();
-    navigator.contacts.find(["*"], this.onSuccess, this.onError, options);
-};
+    onSuccess: function (contacts) {
+        $("#contact-list").append(ContactApi.getHtml(contacts));
 
-ContactApi.prototype.onSuccess = function (contacts) {
-    var phoneContact = [],
-        fullHtml = "",
-        name = "Default",
-        phone;
+        Loader.stop();
+    },
 
-    for (var i = 0; i < contacts.length; i++) {
-        if(contacts[i].phoneNumbers) {
-            if(contacts[i].displayName) {
-                name = contacts[i].displayName;
-            }
-            phone = contacts[i].phoneNumbers[0].value;
-            phoneContact.push({name: name, phone: phone, inDb: false, lvl: null, login: null});
+    onError: function () {
+        alert('onError!');
 
-            fullHtml += ContactApi.preparedNew(name, phone);
-        }
-    }
+        Loader.stop();
+    },
 
-    $("#contact-list").append(fullHtml);
-    ContactApi.contacts = phoneContact;
+    getHtml: function (contacts) {
+        var phoneContact = [];
 
-    Loader.stop();
-};
+        var html = "", name, phone;
 
-ContactApi.prototype.onError = function (contactError) {
-    alert('onError!');
-};
+        for (var i = 0; i < contacts.length; i++) {
+            if(contacts[i].phoneNumbers) {
+                if(contacts[i].displayName) {
+                    name = contacts[i].displayName;
+                }
 
-ContactApi.prototype.synchronize = function () {
-    ApiCaller.get("users", [], function (data) {
-        var contacts = ContactApi.contacts,
-            contactsLength = contacts.length,
-            inDb;
+                phone = contacts[i].phoneNumbers[0].value;
+                phoneContact.push({name: name, phone: phone, inDb: false, lvl: null, login: null});
 
-        for(var i = 0; i < contactsLength; i++) {
-            inDb = ContactApi.isRegistered(contacts[i].phone, data.content);
-
-            if(inDb) {
-                alert("Kangourou");
+                html += ContactApi.prepareNew(name, phone);
             }
         }
 
-    }, ApiCaller.handleError);
-};
+        return html;
+    },
 
-ContactApi.prototype.isRegistered = function (phone, usersList) {
-    var fullLgt = usersList.length;
-
-    for(var i = 0; i < fullLgt; i++) {
-        if(usersList[i].phone == phone) {
-            return usersList[i];
-        }
+    prepareNew: function (name, phone) {
+        return "<li>" + name + " (" + phone + ") - Inviter</li>";
     }
-};
-
-ContactApi.prototype.preparedNew = function (name, phone) {
-    return "<li>" + name + " (" + phone + ") - Inviter</li>";
 };

@@ -1,21 +1,21 @@
-var pictureSource;
-var destinationType;
+var picSource; //picture source
+var destType; // destination type
 
-var camera = {
+var CameraApi = {
     init: function() {
-        pictureSource = navigator.camera.PictureSourceType;
-        destinationType = navigator.camera.DestinationType;
+        picSource = navigator.camera.PictureSourceType;
+        destType = navigator.camera.DestinationType;
 
-        camera.eventListener();
+        CameraApi.eventListener();
     },
 
     eventListener: function() {
         $("#take-photo").click(function() {
-           camera.capturePhoto();
+            CameraApi.capturePhoto();
         });
 
         $("#choose-photo").click(function() {
-            camera.getPhoto(pictureSource.SAVEDPHOTOALBUM);
+            CameraApi.getPhoto(picSource.SAVEDPHOTOALBUM);
         });
     },
 
@@ -26,28 +26,29 @@ var camera = {
     // Called when a photo is successfully retrieved
     onPhotoURISuccess: function (imageURI) {
         $("#profil-img").attr("src", imageURI);
-        alert(imageURI);
     },
 
     // A button will call this function
     capturePhoto: function () {
-        navigator.camera.getPicture(camera.onCaptureSuccess, camera.onFail, { quality: 50,
-            destinationType: destinationType.DATA_URL, saveToPhotoAlbum: true });
+        navigator.camera.getPicture(CameraApi.onCaptureSuccess, CameraApi.onFail, {quality: 50,
+            destinationType: destType.DATA_URL, saveToPhotoAlbum: true }
+        );
     },
 
     // A button will call this function
     capturePhotoEdit: function () {
         // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-        navigator.camera.getPicture(camera.onCaptureSuccess, camera.onFail, { quality: 20, allowEdit: true,
-            destinationType: destinationType.DATA_URL, saveToPhotoAlbum: true });
+        navigator.camera.getPicture(CameraApi.onCaptureSuccess, CameraApi.onFail, {quality: 20,
+            allowEdit: true, destinationType: destType.DATA_URL, saveToPhotoAlbum: true }
+        );
     },
 
     // A button will call this function
     getPhoto: function (source) {
         // Retrieve image file location from specified source
-        navigator.camera.getPicture(camera.onPhotoURISuccess, camera.onFail, { quality: 50,
-            destinationType: destinationType.FILE_URI,
-            sourceType: source });
+        navigator.camera.getPicture(CameraApi.onPhotoURISuccess, CameraApi.onFail, {quality: 50,
+            destinationType: destType.FILE_URI, sourceType: source }
+        );
     },
 
     onFail: function (message) {

@@ -7,7 +7,6 @@ $(document).ready(function() {
 });
 
 var ApiCaller;
-var ContactApi;
 var localLanguage;
 var mainView;
 
@@ -16,9 +15,7 @@ var statusBarStatus = 0;
 var app = {
     onDeviceReady: function() {
         navigator.splashscreen.hide();
-        
         ApiCaller = new ApiCaller();
-        ContactApi = new ContactApi();
 
         var myApp = new Framework7();
         //var $$ = Dom7;
@@ -28,6 +25,7 @@ var app = {
         });
 
         app.eventListener();
+        app.checkLocalStorage();
     },
 
     eventListener: function () {
@@ -68,28 +66,31 @@ var app = {
         });
     },
 
-    //WORK
+    checkLocalStorage: function () {
+        if(localStorage != undefined) {
+        } else {
+            alert("No local");
+        }
+    },
+
+    //Import contact and storage to fix
     profilPage: function () {
         mainView.router.loadContent($('#profilPage').html());
         profilPage.init();
     },
-    
-    //WORK
+
     globalizationPage: function () {
         Globalization.init();
     },
 
-    //CHECK
     googleAnalyticsPage: function() {
         GoogleAnalytics.init();
     },
 
-    //BUG
     compassPage: function() {
         Compass.getCurrent();
     },
 
-    //WORK
     statusBarPage: function () {
         if(statusBarStatus == 0) {
             StatusBar.backgroundColorByHexString("#40A497");
@@ -107,20 +108,19 @@ var app = {
     //ADD INTERVAL
     splashScreenPage: function () {
         navigator.splashscreen.show();
+
+        setTimeout(navigator.splashscreen.hide,2000);
     },
 
-    //WORK
     sharingPage: function () {
         mainView.router.loadContent($('#sharingPage').html());
-        Sharing.init(window.plugins.socialsharing);
+        Sharing.init();
     },
 
-    //TO CHECK
     networkPage: function () {
         Network.checkConnection();
     },
 
-    //WORK EXC LOADER
     geolocPage: function(){
         Loader.start();
 

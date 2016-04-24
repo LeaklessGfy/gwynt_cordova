@@ -2,8 +2,8 @@ var Sharing = {
     tool: null,
     headline: "Rejoignez-moi sur Gwynt ! Et tentez de me défier !",
 
-    init: function (initer) {
-        Sharing.tool = initer;
+    init: function () {
+        Sharing.tool = window.plugins.socialsharing;
     },
 
     shareFb: function () {
