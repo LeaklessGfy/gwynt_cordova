@@ -27,10 +27,6 @@ var app = {
            app.playPage();
         });
 
-        $('.page-fight').on('click', function () {
-            app.fightPage($(this).data('id'));
-        });
-
         $('.page-profil').on('click', function () {
             app.profilPage();
         });
@@ -81,7 +77,6 @@ var app = {
     },
 
     fightPage: function (id){
-        alert(id);
         mainView.router.loadContent($('#fightPage').html());
         fightPage.init(id);
     },

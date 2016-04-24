@@ -1,12 +1,16 @@
 var playPage = {
     init: function () {
-        SongCaller.play("sound/play.mp3", 5);
-        playPage.eventListener();
+        SongCaller.play("play.mp3", 5);
 
         playPage.getFights();
     },
 
     eventListener: function () {
+        $('.page-fight').on('click', function () {
+            SongCaller.resetLoop();
+            app.fightPage($(this).data('id'));
+        });
+
         $('#play-end').click(function () {
             SongCaller.resetLoop();
         });
@@ -31,5 +35,6 @@ var playPage = {
         }
 
         $('#play .content ul').append(html);
+        playPage.eventListener();
     }
 };

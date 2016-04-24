@@ -35,10 +35,9 @@
             </div>
         </div>
 
-        <!-- Right panel with cover effect-->
         <div class="panel panel-right panel-cover">
             <div class="content-block">
-                <p>Right panel content goes here</p>
+                <p>Options</p>
             </div>
         </div>
 
@@ -278,8 +277,12 @@
         <script type="text/template" id="fightPage">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="left"><a href="#" class="back link" id="fight-end"><i class="icon icon-back"></i><span>Back</span></a></div>
                     <div class="center">Combat</div>
+
+                    <div class="right">
+                        <a href="#" class="icon-only open-panel" data-panel="right"><i class="icon icon-bars"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -440,12 +443,6 @@
                                 <p>2</p>
                             </div>
                         </div>
-
-                        <div id="vainqueur">
-                            <h1></h1>
-                        </div>
-
-                        <button>Lancer la partie</button>
                     </div>
                 </div>
             </div>

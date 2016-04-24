@@ -60,6 +60,28 @@
     }
   }
 
+  .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .8);
+    text-align: center;
+    z-index: 99999999999;
+    color: #ffffff;
+    overflow: scroll;
+
+    .content {
+      height: 100%;
+      overflow-y: scroll;
+
+      .button-group {
+        margin-top: 10px;
+      }
+    }
+  }
+
   #app-loader {
     height: 100%;
     width: 100%;

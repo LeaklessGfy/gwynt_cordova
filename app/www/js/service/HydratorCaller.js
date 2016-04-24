@@ -4,7 +4,10 @@ var HydratorCaller = {
             appender.append($('<div>').load("./views/" + template, onSuccess));
         }
 
-        toHide.hide();
+        if(toHide) {
+            toHide.hide();
+        }
+        
         elem.show();
     }
 };

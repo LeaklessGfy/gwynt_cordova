@@ -15,9 +15,11 @@ var SongCaller = {
     },
 
     resetLoop: function () {
-        SongCaller.mp3.stop();
-        SongCaller.mp3.release();
-        SongCaller.mp3 = null;
+        if(SongCaller.mp3 != null) {
+            SongCaller.mp3.stop();
+            SongCaller.mp3.release();
+            SongCaller.mp3 = null;
+        }
     },
 
     loop: function (status) {
@@ -28,10 +30,10 @@ var SongCaller = {
 
     getMediaUrl: function (s) {
         if(device.platform.toLowerCase() === "android") {
-            return "/android_asset/www/" + s;
+            return "/android_asset/www/sound/" + s;
         }
 
-        return s;
+        return "sound/" + s;
     },
     
     onCreateError: function (e) {
