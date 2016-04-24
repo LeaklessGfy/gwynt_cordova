@@ -6,7 +6,7 @@ var playPage = {
     },
 
     eventListener: function () {
-        $('.page-fight').on('click', function () {
+        $('body').on('click', '.page-fight', function () {
             SongCaller.resetLoop();
             app.fightPage($(this).data('id'));
         });
@@ -17,7 +17,7 @@ var playPage = {
     },
 
     getFights: function () {
-        ApiCaller.get("users", {free: 1}, playPage.onGetSuccess, ApiCaller.onError);
+        ApiCaller.get("users", {}, playPage.onGetSuccess, ApiCaller.onError);
     },
 
     onGetSuccess: function (data) {
@@ -35,6 +35,5 @@ var playPage = {
         }
 
         $('#play .content ul').append(html);
-        playPage.eventListener();
     }
 };

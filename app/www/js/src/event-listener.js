@@ -23,43 +23,45 @@ var app = {
     },
 
     eventListener: function () {
-        $('.page-play').on('click', function () {
+        var body = $('#main-content');
+
+        body.on('click', '.page-play',  function () {
            app.playPage();
         });
 
-        $('.page-profil').on('click', function () {
+        body.on('click', '.page-profil', function () {
             app.profilPage();
         });
 
-        $('.page-globalization').on('click', function () {
+        body.on('click', '.page-profil', function () {
             app.globalizationPage();
         });
         
-        $('.page-google-analytics').on('click', function() {
+        body.on('click', '.page-google-analytics', function() {
             app.googleAnalyticsPage();
         });
 
-        $('.page-compass').on('click', function () {
+        body.on('click', '.page-compass', function () {
            app.compassPage();
         });
 
-        $('.page-status-bar').on('click', function () {
+        body.on('click', '.page-status-bar', function () {
            app.statusBarPage();
         });
 
-        $('.page-splash-screen').on('click', function () {
+        body.on('click', '.page-splash-screen', function () {
             app.splashScreenPage();
         });
 
-        $('.page-sharing').on('click', function () {
+        body.on('click', '.page-sharing', function () {
            app.sharingPage();
         });
 
-        $('.page-network').on('click', function () {
+        body.on('click', '.page-network', function () {
            app.networkPage();
         });
 
-        $('.page-geoloc').on('click', function () {
+        body.on('click', '.page-geoloc', function () {
             app.geolocPage();
         });
     },

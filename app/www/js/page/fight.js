@@ -29,5 +29,11 @@ var fightPage = {
         HydratorCaller.hydrate(elem, $("#main-content"), "fight/overlay.html", null, function () {
             alert("success");
         });
+    },
+
+    submitCards: function () {
+        $('#choose-cards').hide();
+        SongCaller.resetLoop();
+        SongCaller.play("fight-interlude.mp3", 2);
     }
 };
