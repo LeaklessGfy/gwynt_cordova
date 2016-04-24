@@ -74,11 +74,11 @@
 
     .content {
       margin-top: 20px;
-      height: 95%;
+      height: 80%;
       overflow-y: scroll;
 
-      .button-group {
-        margin-top: 30px;
+      .disable {
+        opacity: 0.2;
       }
     }
   }

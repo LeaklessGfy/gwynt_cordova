@@ -1,15 +1,15 @@
 var SongCaller = {
     mp3: null,
 
-    play: function (s, i) {
-        var loop = null;
-        if(i > 1) {
-            loop = SongCaller.loop;
+    play: function (s, iopt) {
+        var opt = null;
+        if(iopt) {
+            opt = iopt;
         }
 
         var src = SongCaller.getMediaUrl(s);
-        mp3file = new Media(src, null, SongCaller.onCreateError, loop);
-        mp3file.play({ numberOfLoops: i });
+        mp3file = new Media(src, null, SongCaller.onCreateError, opt);
+        mp3file.play();
 
         SongCaller.mp3 = mp3file;
     },

@@ -1,5 +1,5 @@
 var HydratorCaller = {
-    hydrate: function (elem, appender, template, toHide, onSuccess) {
+    hydrate: function (elem, appender, template, toHide, onSuccess, always) {
         if(elem.length == 0) {
             appender.append($('<div>').load("./views/" + template, onSuccess));
         }
@@ -7,7 +7,10 @@ var HydratorCaller = {
         if(toHide) {
             toHide.hide();
         }
-        
         elem.show();
+
+        if(always) {
+            always();
+        }
     }
 };

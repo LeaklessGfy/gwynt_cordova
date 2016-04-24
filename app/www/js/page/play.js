@@ -1,6 +1,7 @@
 var playPage = {
     init: function () {
-        SongCaller.play("play.mp3", 5);
+        SongCaller.play("play.mp3", SongCaller.loop);
+        playPage.eventListener();
 
         playPage.getFights();
     },

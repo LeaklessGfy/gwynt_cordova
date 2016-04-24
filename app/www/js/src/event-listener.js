@@ -30,7 +30,7 @@ var app = {
             app.profilPage();
         });
 
-        body.on('click', '.page-profil', function () {
+        body.on('click', '.page-globalization', function () {
             app.globalizationPage();
         });
         
