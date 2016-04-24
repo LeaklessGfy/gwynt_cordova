@@ -14,7 +14,6 @@ var statusBarStatus = 0;
 
 var app = {
     onDeviceReady: function() {
-        navigator.splashscreen.hide();
         ApiCaller = new ApiCaller();
 
         var myApp = new Framework7();
@@ -29,6 +28,10 @@ var app = {
     },
 
     eventListener: function () {
+        $('.page-play').on('click', function () {
+           app.playPage();
+        });
+
         $('.page-profil').on('click', function () {
             app.profilPage();
         });
@@ -73,7 +76,11 @@ var app = {
         }
     },
 
-    //Import contact and storage to fix
+    playPage: function () {
+        mainView.router.loadContent($('#playPage').html());
+        playPage.init();
+    },
+
     profilPage: function () {
         mainView.router.loadContent($('#profilPage').html());
         profilPage.init();

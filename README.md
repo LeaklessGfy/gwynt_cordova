@@ -50,6 +50,8 @@ Les platforms ne sont pas sur la branche master pour ne pas mélanger les utilis
 * cordova plugin add cordova-plugin-globalization
 * cordova plugin add cordova-plugin-google-analytics
 * cordova plugin add cordova-plugin-splashscreen
+* cordova plugin add cordova-plugin-media
+* cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 
 **Build ou Emulate**
 
