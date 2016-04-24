@@ -8,12 +8,12 @@ var playPage = {
 
     eventListener: function () {
         $('body').on('click', '.page-fight', function () {
-            SongCaller.resetLoop();
+            SongCaller.reset();
             app.fightPage($(this).data('id'));
         });
 
         $('#play-end').click(function () {
-            SongCaller.resetLoop();
+            SongCaller.reset();
         });
     },
 

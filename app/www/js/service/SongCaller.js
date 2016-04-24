@@ -14,7 +14,7 @@ var SongCaller = {
         SongCaller.mp3 = mp3file;
     },
 
-    resetLoop: function () {
+    reset: function () {
         if(SongCaller.mp3 != null) {
             SongCaller.mp3.stop();
             SongCaller.mp3.release();

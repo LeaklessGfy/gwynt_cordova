@@ -1,4 +1,5 @@
 var fightPage = {
+    eventLoaded: false,
     cards: [],
     cardsLeft: 2,
     cardsChanged: [],
@@ -16,13 +17,26 @@ var fightPage = {
     },
 
     eventListener: function () {
+        if(!fightPage.eventLoaded) {
+            $('body').on('click', '.change-cards', function() {
+                fightPage.changeCards($(this));
+            });
+
+            fightPage.eventLoaded = true;
+        }
+        
         $('#fight-end').click(function () {
-            SongCaller.resetLoop();
+            SongCaller.reset();
         });
     },
 
     setupFight: function (data) {
+        fightPage.cardsLeft = 2;
+        fightPage.cardsChanged = [];
+        cards = [];
+        
         $("#player1 .name").text(data.login);
+        $("#player2 .name").text(localStorage.get("login"));
         
         fightPage.chooseCards();
     },
@@ -31,19 +45,11 @@ var fightPage = {
         var elem = $("#choose-cards");
 
         HydratorCaller.hydrate(elem, $("#main-content"), "fight/choose-cards.html", null, function () {}, function () {
-            fightPage.cardsLeft = 2;
-            fightPage.cardsChanged = [];
-
-            elem.find("a").each( function( index, element ){
+            $("#choose-cards .content a img").each( function( index, element ){
                 $(this).removeClass("disable");
             });
 
             fightPage.handleDisplay();
-
-            $('body').on('click', '.change-cards', function() {
-                alert('clique');
-                fightPage.changeCards($(this));
-            });
         });
     },
 
@@ -53,7 +59,7 @@ var fightPage = {
         }
 
         $('#choose-cards').hide();
-        SongCaller.resetLoop();
+        SongCaller.reset();
         SongCaller.play("fight-interlude.mp3", SongCaller.loop);
     },
     
