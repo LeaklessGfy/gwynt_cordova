@@ -51,7 +51,7 @@ var profilPage = {
     onProfilSuccess: function () {
         CameraApi.init();
 
-        $('#pseudo-c').text(localStorage.getItem("login"));
+        $('#pseudo-c').text(user.login);
         $('.page-content').addClass("bg" + localStorage.getItem("bg"));
 
         LocalStorageApi.init();

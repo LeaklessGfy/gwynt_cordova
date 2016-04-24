@@ -4,7 +4,11 @@ $(document).ready(function() {
     });
 });
 
-var localLanguage;
+var user = {
+    id: 1,
+    login: null
+};
+
 var mainView;
 
 var app = {
@@ -65,6 +69,8 @@ var app = {
 
     checkLocalStorage: function () {
         if(localStorage != undefined) {
+            //user.id = localStorage.getItem('id');
+            user.login = localStorage.getItem('login');
         } else {
             alert("No local");
         }

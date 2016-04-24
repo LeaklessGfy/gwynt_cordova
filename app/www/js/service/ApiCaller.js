@@ -1,5 +1,5 @@
 var ApiCaller = {
-    baseUrl: "http://ef5d849f.ngrok.io", //To change with ngrok in pre-prod
+    baseUrl: "http://adbbb436.ngrok.io", //To change with ngrok in pre-prod
     port: 80,
     method: "GET",
     type: "json",

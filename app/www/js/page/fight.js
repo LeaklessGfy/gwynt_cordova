@@ -1,6 +1,8 @@
 var fightPage = {
     eventLoaded: false,
+    decks: [],
     cards: [],
+    cardsFamily: 1,
     cardsLeft: 2,
     cardsChanged: [],
     
@@ -36,19 +38,43 @@ var fightPage = {
         cards = [];
         
         $("#player1 .name").text(data.login);
-        $("#player2 .name").text(localStorage.get("login"));
-        
+        $("#player2 .name").text(user.login);
+
+        ApiCaller.get("decks/"+user.id, {}, fightPage.getDeck, ApiCaller.onError);
+    },
+
+    getDeck: function (data) {
+        fightPage.deck = data;
+        //TODO -- Function to get random card from deck
+        fightPage.cards = [{id: 1, img: "N01.png"}, {id: 2, img: "N02.png"}, {id: 3, img: "N03.png"}, {id: 4, img: "N04.png"}, {id: 5, img: "N05.png"}, {id: 6, img: "N06.png"}, {id: 7, img: "N07.png"}, {id: 8, img: "N08.png"}, {id: 9, img: "N09.png"}, {id: 10, img: "N10.png"}];
+
         fightPage.chooseCards();
     },
     
     chooseCards: function () {
         var elem = $("#choose-cards");
 
-        HydratorCaller.hydrate(elem, $("#main-content"), "fight/choose-cards.html", null, function () {}, function () {
-            $("#choose-cards .content a img").each( function( index, element ){
-                $(this).removeClass("disable");
-            });
+        HydratorCaller.hydrate(elem, $("#main-content"), "fight/choose-cards.html", null, function () {
+            function isEven(n) {
+                return n % 2 == 0;
+            }
 
+            var html = "";
+            for(var i = 0; i < 10; i++) {
+                var newRow = isEven(i);
+                if(newRow) {
+                    html += '<div class="row">'
+                }
+                
+                html += '<div class="col-50"><a href="#" class="change-cards" data-id="'+fightPage.cards[i].id+'"><img src="img/cards/'+fightPage.cardsFamily+'/'+fightPage.cards[i].img+'" alt="img" width="100%"></a></div>';
+
+                if(!newRow) {
+                    html += '</div>';
+                }
+            }
+
+            $("#choose-cards .content").append(html);
+        }, function () {
             fightPage.handleDisplay();
         });
     },
@@ -83,10 +109,9 @@ var fightPage = {
     },
 
     isAlreadyDisable: function (id) {
-        var lgt = fightPage.cardsChanged.length;
         var val = false;
 
-        for(var i = 0; i < lgt; i++) {
+        for(var i = 0; i < 2; i++) {
             if(id == fightPage.cardsChanged[i]) {
                 val = i;
             }
