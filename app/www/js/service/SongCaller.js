@@ -1,6 +1,5 @@
 var SongCaller = {
     play: function (s) {
-        alert(s);
         var src = SongCaller.getMediaUrl(s);
         mp3file = new Media(src, null, SongCaller.onCreateError);
 
@@ -8,7 +7,6 @@ var SongCaller = {
     },
 
     getMediaUrl: function (s) {
-        alert(device.platform.toLowerCase());
         if(device.platform.toLowerCase() === "android") {
             return "/android_asset/www/" + s;
         }
