@@ -1,3 +1,7 @@
+# Stories
+
+	- Push sur serveur externe (git)
+
 # Journée
 
 
