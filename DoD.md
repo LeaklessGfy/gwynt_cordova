@@ -7,6 +7,7 @@
 
 	- Pull sur device externe (smartphone) 
 	- tester sur un téléphone android
+	- test sur emulateur ios
 	- Faire les stories séparement et les tester avec le groupe une par une pour la valider
 
 
